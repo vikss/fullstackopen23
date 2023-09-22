@@ -1,0 +1,25 @@
+h1 {
+
+
+  color: green;
+  font-style: italic;
+}
+
+.info,
+.error {
+  border-radius: 4px;
+  font-size: 30px;
+  color: green;
+  background-color: rgb(239, 232, 232);
+  border-color: green;
+  border-style: solid;
+  margin-bottom: 8px;
+  padding-left: 4px;
+
+}
+
+.error {
+  color: red;
+  border-color: red;
+
+}
