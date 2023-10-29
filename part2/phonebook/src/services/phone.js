@@ -41,9 +41,9 @@ const deleteEntry = (id) => {
    }
 
    ).catch(error => {
-   console.log(error)
-     return error.response
-})
+      console.log(error)
+      return error.response
+   })
 
 }
 

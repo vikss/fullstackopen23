@@ -9,9 +9,9 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [message, setMessage] = useState(DEFAULT_MESSAGE)
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    console.log("here")
     phoneService.getAll().then(res => setPersons(res))
 
 
@@ -113,11 +113,18 @@ const App = () => {
     console.log(event.target.value)
     setNewNumber(event.target.value)
   }
+  const filterResult = (event) => {
+
+    console.log(event.target.value)
+    setSearchTerm(event.target.value)
+
+
+  }
   return (
     <div>
       <h1>Phonebook</h1>
       <Notification message={message.name} classname={message.classname}></Notification>
-      <div>filter shown with <input ></input></div>
+      <div>filter shown with <input value={searchTerm} onChange={filterResult}></input></div>
       <h2>add a new</h2>
       <form onSubmit={addEntry}>
         <div>
@@ -131,7 +138,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      <div>{persons.map(person => <div>{person.name} {person.number} <button onClick={deleteEntry} value={person.name}>delete</button></div>)}</div>
+      <div>{persons.filter(person => person.name.toLowerCase().includes(searchTerm.toLowerCase())).map(person => <div>{person.name} {person.number} <button onClick={deleteEntry} value={person.name}>delete</button></div>)}</div>
     </div>
   )
 }
