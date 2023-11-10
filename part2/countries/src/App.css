@@ -1,0 +1,13 @@
+.capital > div{
+
+
+    display: inline-block;
+}
+
+#langheading{
+
+font-weight: bold;
+font-size: large;
+margin-top: 15px
+
+}
