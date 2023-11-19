@@ -58,6 +58,7 @@ const App = () => {
          <div>area {filtered[0].area}</div>
          <div id="lang"><div id="langheading">languages:</div><ul> {Object.values(filtered[0].languages).map(lang => <li>{lang}</li>)}</ul></div>
          <div><img src={filtered[0].flags.png} height="160px" width="160px" /></div>
+         <div className="heading"><div>Weather in {filtered[0].capital[0]}</div></div>
 
 
 
@@ -67,7 +68,7 @@ const App = () => {
 
          console.log(country)
          console.log(country.name.common)
-         return <div>{country.name.common}</div>
+         return <div>{country.name.common}<button onClick={(event) => { setSearch(country.name.common) }} value={country.name.common}>show</button></div>
 
 
       })}</div>}
